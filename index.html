@@ -7,6 +7,8 @@
   <meta name="description" content="Asesoría integral de salud gratuita para veterinarios, médicos y altos ejecutivos. Compara tu isapre y aprovecha tu 7%.">
   <meta property="og:title" content="Alexis Melgarejo · Asesor de Salud">
   <meta property="og:description" content="Invertimos tu 7%. Asesoría gratuita para veterinarios, médicos y ejecutivos.">
+  <meta property="og:image" content="img/alexis-og.jpg">
+  <link rel="icon" href="img/alexis-og.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -100,8 +102,9 @@
 
     /* About */
     .about { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }
-    .avatar { width: 100%; aspect-ratio: 1; border-radius: 28px; background: linear-gradient(150deg, var(--navy), var(--blue)); display: grid; place-items: center; color: #fff; font-family: "Montserrat", sans-serif; font-size: 5rem; font-weight: 800; position: relative; overflow: hidden; }
-    .avatar::after { content: ""; position: absolute; width: 60%; height: 60%; right: -15%; bottom: -15%; border-radius: 50%; background: var(--cyan); opacity: .35; }
+    .avatar { width: 100%; aspect-ratio: 4 / 5; border-radius: 28px; background: linear-gradient(150deg, var(--navy), var(--blue)); position: relative; overflow: hidden; box-shadow: 0 20px 50px rgba(11,37,69,.18); }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .avatar::after { content: ""; position: absolute; inset: auto 0 0 0; height: 6px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
     .about h2 { font-size: clamp(1.8rem, 3.4vw, 2.3rem); color: var(--navy); font-weight: 800; margin-bottom: 14px; }
     .about p { color: var(--muted); margin-bottom: 12px; font-size: 1.03rem; }
     .social { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
@@ -281,7 +284,7 @@
 
     <section id="sobre-mi" class="white">
       <div class="wrap about">
-        <div class="avatar" aria-hidden="true">AM</div>
+        <div class="avatar"><img src="img/alexis-melgarejo.jpg" alt="Alexis Melgarejo, asesor de salud" width="800" height="957" loading="lazy"></div>
         <div>
           <span class="eyebrow" style="color:var(--blue)">Sobre mí</span>
           <h2>Hola, soy Alexis Melgarejo</h2>
