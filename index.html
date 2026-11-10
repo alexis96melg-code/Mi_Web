@@ -3,212 +3,429 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mi Web</title>
-  <meta name="description" content="Página de muestra de Mi Web.">
+  <title>Alexis Melgarejo · Asesor de Salud</title>
+  <meta name="description" content="Asesoría integral de salud gratuita para veterinarios, médicos y altos ejecutivos. Compara tu isapre y aprovecha tu 7%.">
+  <meta property="og:title" content="Alexis Melgarejo · Asesor de Salud">
+  <meta property="og:description" content="Invertimos tu 7%. Asesoría gratuita para veterinarios, médicos y ejecutivos.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f7f5;
-      --surface: #ffffff;
-      --text: #1a1a1a;
-      --muted: #5f6368;
-      --accent: #2f7d4f;
-      --accent-soft: #e3f1e8;
-      --border: #e4e4e0;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #111312;
-        --surface: #1a1d1b;
-        --text: #f1f1ef;
-        --muted: #a3a8a5;
-        --accent: #5cc48a;
-        --accent-soft: #1f3328;
-        --border: #2a2e2c;
-      }
+      --navy: #0B2545;
+      --navy-2: #13315C;
+      --blue: #1E6FD9;
+      --cyan: #2EC4E6;
+      --cyan-soft: #E3F6FB;
+      --bg: #F5F8FC;
+      --surface: #FFFFFF;
+      --text: #14213D;
+      --muted: #55627A;
+      --line: #DDE5EF;
+      --wa: #25D366;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    body { font-family: "Inter", system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    h1, h2, h3, .brand { font-family: "Montserrat", "Inter", sans-serif; }
     a { color: inherit; text-decoration: none; }
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
 
-    /* Navegación */
-    header {
-      position: sticky; top: 0; z-index: 10;
-      background: color-mix(in srgb, var(--bg) 85%, transparent);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-    nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .logo { font-weight: 800; font-size: 1.2rem; }
-    .logo span { color: var(--accent); }
-    .links { display: flex; gap: 24px; font-size: .95rem; color: var(--muted); }
-    .links a:hover { color: var(--text); }
-
-    /* Portada */
-    .hero { padding: 96px 0 80px; text-align: center; }
-    .badge {
-      display: inline-block; padding: 6px 14px; border-radius: 999px;
-      background: var(--accent-soft); color: var(--accent);
-      font-size: .85rem; font-weight: 600; margin-bottom: 20px;
-    }
-    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.1; font-weight: 800; margin-bottom: 20px; }
-    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 600px; margin: 0 auto 32px; }
-    .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      padding: 12px 24px; border-radius: 10px; font-weight: 600;
-      border: 1px solid var(--border); background: var(--surface);
-      transition: transform .15s ease;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 50px; padding: 0 24px; border-radius: 999px; font-weight: 600; font-size: 16px; border: 0; cursor: pointer; font-family: inherit; transition: transform .15s ease, box-shadow .15s ease; }
     .btn:hover { transform: translateY(-2px); }
-    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .btn-cyan { background: var(--cyan); color: var(--navy); box-shadow: 0 6px 20px rgba(46,196,230,.35); }
+    .btn-outline { border: 1.5px solid rgba(255,255,255,.5); color: #fff; }
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn-wa { background: var(--wa); color: #fff; }
 
-    /* Secciones */
-    section { padding: 72px 0; }
-    .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 12px; text-align: center; }
-    .section-sub { color: var(--muted); text-align: center; margin-bottom: 48px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-    .card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 16px; padding: 28px;
+    /* Header */
+    header { position: sticky; top: 0; z-index: 20; background: var(--navy); color: #fff; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { font-weight: 800; font-size: 1.15rem; letter-spacing: .02em; line-height: 1.1; }
+    .brand small { display: block; font-family: "Inter", sans-serif; font-weight: 500; font-size: .72rem; color: var(--cyan); letter-spacing: .14em; text-transform: uppercase; }
+    nav.links { display: flex; gap: 26px; font-size: .93rem; color: #C8D6EA; }
+    nav.links a:hover { color: #fff; }
+    header .btn { min-height: 42px; padding: 0 18px; font-size: .9rem; }
+
+    /* Hero */
+    .hero { background: radial-gradient(circle at 85% 20%, rgba(46,196,230,.25), transparent 45%), linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 60%, #1A4B8C 100%); color: #fff; padding: 80px 0 96px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+    .eyebrow { display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.6rem); line-height: 1.08; font-weight: 800; margin-bottom: 20px; }
+    .hero h1 span { color: var(--cyan); }
+    .hero p.lead { font-size: 1.15rem; color: #C8D6EA; max-width: 560px; margin-bottom: 30px; }
+    .row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .trust { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 30px; font-size: .9rem; color: #C8D6EA; }
+    .trust span::before { content: "✓"; color: var(--cyan); font-weight: 700; margin-right: 8px; }
+
+    .case { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 24px; padding: 30px; backdrop-filter: blur(6px); }
+    .case .tag { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--cyan); }
+    .case small { display: block; color: #AFC2DD; font-size: .9rem; margin-top: 18px; }
+    .price { font-family: "Montserrat", sans-serif; font-size: 2.3rem; font-weight: 800; }
+    .price span { font-size: 1rem; font-weight: 500; color: #AFC2DD; }
+    .price.new { color: var(--cyan); }
+    .case hr { border: 0; height: 1px; background: rgba(255,255,255,.15); margin-top: 18px; }
+    .case p { margin-top: 16px; font-size: .95rem; color: #DCE6F3; }
+
+    /* Sections */
+    section { padding: 88px 0; }
+    .head { text-align: center; max-width: 680px; margin: 0 auto 52px; }
+    .head .eyebrow { color: var(--blue); }
+    .head h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); font-weight: 800; color: var(--navy); line-height: 1.15; margin-bottom: 12px; }
+    .head p { color: var(--muted); font-size: 1.05rem; }
+
+    .clients { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .client { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 32px 28px; display: flex; flex-direction: column; gap: 14px; transition: box-shadow .2s ease, transform .2s ease; }
+    .client:hover { box-shadow: 0 16px 40px rgba(11,37,69,.10); transform: translateY(-4px); }
+    .client .ico { width: 56px; height: 56px; border-radius: 16px; background: var(--cyan-soft); color: var(--blue); display: grid; place-items: center; }
+    .client h3 { font-size: 1.3rem; color: var(--navy); }
+    .client p { color: var(--muted); font-size: .97rem; }
+    .client ul { list-style: none; display: grid; gap: 8px; margin-top: 4px; }
+    .client li { font-size: .93rem; padding-left: 26px; position: relative; }
+    .client li::before { content: ""; position: absolute; left: 0; top: 7px; width: 14px; height: 8px; border-left: 2.5px solid var(--cyan); border-bottom: 2.5px solid var(--cyan); transform: rotate(-45deg); }
+    .client a.more { margin-top: auto; padding-top: 10px; font-weight: 600; color: var(--blue); }
+
+    .white { background: var(--surface); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: s; }
+    .step { background: var(--bg); border-radius: 20px; padding: 30px; }
+    .step::before { counter-increment: s; content: "0" counter(s); font-family: "Montserrat", sans-serif; font-weight: 800; font-size: 2.2rem; color: var(--cyan); display: block; margin-bottom: 8px; }
+    .step h3 { color: var(--navy); font-size: 1.15rem; margin-bottom: 6px; }
+    .step p { color: var(--muted); font-size: .96rem; }
+
+    .checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+    .check { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+    .check .dot { flex: none; width: 36px; height: 36px; border-radius: 10px; background: var(--navy); color: var(--cyan); display: grid; place-items: center; font-weight: 800; }
+    .check strong { display: block; color: var(--navy); margin-bottom: 2px; }
+    .check span { color: var(--muted); font-size: .93rem; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }
+    .avatar { width: 100%; aspect-ratio: 1; border-radius: 28px; background: linear-gradient(150deg, var(--navy), var(--blue)); display: grid; place-items: center; color: #fff; font-family: "Montserrat", sans-serif; font-size: 5rem; font-weight: 800; position: relative; overflow: hidden; }
+    .avatar::after { content: ""; position: absolute; width: 60%; height: 60%; right: -15%; bottom: -15%; border-radius: 50%; background: var(--cyan); opacity: .35; }
+    .about h2 { font-size: clamp(1.8rem, 3.4vw, 2.3rem); color: var(--navy); font-weight: 800; margin-bottom: 14px; }
+    .about p { color: var(--muted); margin-bottom: 12px; font-size: 1.03rem; }
+    .social { display: flex; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+    .social a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 1.5px solid var(--line); font-weight: 600; color: var(--navy); font-size: .93rem; }
+    .social a:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* Testimonios */
+    .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .quote { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 18px; position: relative; }
+    .quote::before { content: "★★★★★"; color: var(--cyan); letter-spacing: 3px; font-size: .95rem; }
+    .quote blockquote { color: var(--text); font-size: .97rem; flex: 1; }
+    .quote figcaption strong { display: block; color: var(--navy); }
+    .quote figcaption span { color: var(--muted); font-size: .85rem; }
+
+    /* FAQ */
+    .faq { max-width: 780px; margin: 0 auto; display: grid; gap: 12px; }
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; }
+    summary { cursor: pointer; font-weight: 600; color: var(--navy); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+    summary::after { content: "+"; color: var(--blue); font-size: 1.4rem; line-height: 1; }
+    details[open] summary::after { content: "–"; }
+    details p { color: var(--muted); margin-top: 12px; }
+
+    /* Contact */
+    #contacto { background: linear-gradient(160deg, var(--navy), var(--navy-2)); color: #fff; }
+    .contact { display: grid; grid-template-columns: 1fr 1.3fr; gap: 48px; align-items: start; }
+    .contact h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); font-weight: 800; margin-bottom: 14px; }
+    .contact p { color: #C8D6EA; margin-bottom: 20px; }
+    form { background: var(--surface); color: var(--text); border-radius: 24px; padding: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { display: flex; flex-direction: column; gap: 6px; font-size: .88rem; font-weight: 600; color: var(--navy); }
+    input, select { min-height: 46px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-weight: 400; background: var(--bg); color: var(--text); width: 100%; }
+    input:focus, select:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+    .full { grid-column: 1 / -1; }
+    .consent { flex-direction: row; align-items: flex-start; gap: 10px; font-weight: 400; color: var(--muted); font-size: .85rem; }
+    .consent input { width: 18px; height: 18px; min-height: 0; flex: none; margin-top: 2px; }
+    #msg { font-size: .9rem; color: var(--muted); }
+    #msg.err { color: #C0392B; }
+    #msg a { color: var(--blue); font-weight: 600; }
+
+    footer { background: #071A33; color: #8FA3C0; padding: 32px 0; font-size: .88rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+    .float-wa { position: fixed; right: 20px; bottom: 20px; z-index: 30; width: 60px; height: 60px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+
+    @media (max-width: 900px) {
+      nav.links { display: none; }
+      .hero .wrap, .contact, .about { grid-template-columns: 1fr; }
+      .clients, .steps { grid-template-columns: 1fr; }
+      .about .avatar { max-width: 220px; }
+      section { padding: 64px 0; }
+      .hero { padding: 56px 0 72px; }
     }
-    .card .icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      background: var(--accent-soft); color: var(--accent);
-      display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 16px;
-    }
-    .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: .95rem; }
-
-    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-    .about h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
-    .about p { color: var(--muted); margin-bottom: 12px; }
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; text-align: center; }
-    .stat strong { display: block; font-size: 1.8rem; color: var(--accent); }
-    .stat span { color: var(--muted); font-size: .85rem; }
-
-    /* Contacto */
-    .contact { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 48px; max-width: 640px; margin: 0 auto; }
-    form { display: grid; gap: 14px; }
-    input, textarea {
-      width: 100%; padding: 12px 14px; border-radius: 10px;
-      border: 1px solid var(--border); background: var(--bg); color: var(--text);
-      font: inherit;
-    }
-    textarea { min-height: 120px; resize: vertical; }
-    button.btn { cursor: pointer; font: inherit; font-weight: 600; }
-    #mensaje-ok { color: var(--accent); font-weight: 600; text-align: center; display: none; }
-
-    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: .9rem; text-align: center; }
-
-    @media (max-width: 720px) {
-      .links { display: none; }
-      .about { grid-template-columns: 1fr; }
-      .contact { padding: 28px 20px; }
-      .hero { padding: 64px 0 48px; }
+    @media (max-width: 560px) {
+      form { grid-template-columns: 1fr; padding: 22px; }
+      header .btn span { display: none; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <nav>
-        <a href="#" class="logo">Mi<span>Web</span></a>
-        <div class="links">
-          <a href="#servicios">Servicios</a>
-          <a href="#nosotros">Nosotros</a>
-          <a href="#contacto">Contacto</a>
-        </div>
+    <div class="wrap">
+      <a href="#" class="brand">ALEXIS MELGAREJO<small>Asesor de Salud</small></a>
+      <nav class="links">
+        <a href="#clientes">Para quién</a>
+        <a href="#como-trabajo">Cómo trabajo</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#preguntas">Preguntas</a>
       </nav>
+      <a href="#contacto" class="btn btn-cyan">Asesoría <span>&nbsp;gratuita</span></a>
     </div>
   </header>
 
   <main>
-    <div class="container hero">
-      <span class="badge">Página de muestra</span>
-      <h1>Tu proyecto, en línea<br>y listo para crecer</h1>
-      <p>Esta es una página de ejemplo publicada con Vercel. Cambia los textos, colores y secciones para adaptarla a lo que necesites.</p>
-      <div class="buttons">
-        <a href="#contacto" class="btn primary">Contáctanos</a>
-        <a href="#servicios" class="btn">Ver servicios</a>
+    <div class="hero">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Asesor integral de salud</span>
+          <h1>Invertimos tu <span>7%</span> en la salud que de verdad necesitas</h1>
+          <p class="lead">Asesoría gratuita y personalizada para veterinarios, médicos y altos ejecutivos. Comparo tu plan actual con las alternativas del mercado y te muestro, con números, cuánto pagarías realmente.</p>
+          <div class="row">
+            <a href="#contacto" class="btn btn-cyan">Quiero mi comparación gratis</a>
+            <a href="https://wa.me/56979330919?text=Hola%20Alexis%2C%20quiero%20una%20asesor%C3%ADa%20de%20salud." target="_blank" rel="noopener" class="btn btn-outline">Escríbeme por WhatsApp</a>
+          </div>
+          <div class="trust">
+            <span>Certificado por la Superintendencia de Salud</span>
+            <span>Sin costo para ti</span>
+            <span>Todo Chile</span>
+          </div>
+        </div>
+        <aside class="case">
+          <span class="tag">Caso real · cliente anónimo</span>
+          <small>Pagaba en su plan actual</small>
+          <div class="price">$177.016<span> /mes</span></div>
+          <hr>
+          <small>Con la alternativa que le propuse</small>
+          <div class="price new">$153.330<span> /mes</span></div>
+          <p>Unos $23.000 menos al mes, y con parto y cesárea cubiertos al 100% en vez de 25%.</p>
+        </aside>
       </div>
     </div>
 
-    <section id="servicios">
-      <div class="container">
-        <h2 class="section-title">Servicios</h2>
-        <p class="section-sub">Lo que podemos hacer por ti</p>
-        <div class="grid">
-          <div class="card">
-            <div class="icon">💼</div>
-            <h3>Asesoría</h3>
-            <p>Te acompañamos a tomar mejores decisiones con un análisis claro de tu situación.</p>
-          </div>
-          <div class="card">
-            <div class="icon">📊</div>
-            <h3>Planificación</h3>
-            <p>Definimos objetivos, plazos y pasos concretos para que avances con seguridad.</p>
-          </div>
-          <div class="card">
-            <div class="icon">🤝</div>
-            <h3>Acompañamiento</h3>
-            <p>Seguimiento cercano y atención personalizada durante todo el proceso.</p>
+    <section id="clientes">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Para quién trabajo</span>
+          <h2>Asesoría pensada para tu profesión</h2>
+          <p>Cada perfil tiene necesidades distintas. Por eso no te ofrezco un plan genérico, sino uno que se ajuste a tu forma de trabajar y a tu familia.</p>
+        </div>
+        <div class="clients">
+          <article class="client">
+            <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z"/></svg></div>
+            <h3>Veterinarios</h3>
+            <p>Cuidas la salud de otros todos los días. Es momento de que alguien cuide la tuya y la de tu familia.</p>
+            <ul>
+              <li>Planes acordes a ingresos fijos o por honorarios</li>
+              <li>Cobertura para ti y tus cargas</li>
+              <li>Beneficios adicionales para mascotas, según plan</li>
+            </ul>
+            <a href="#contacto" class="more" data-perfil="Veterinario/a">Quiero mi asesoría →</a>
+          </article>
+          <article class="client">
+            <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg></div>
+            <h3>Médicos</h3>
+            <p>Conoces el sistema por dentro, pero no tienes tiempo para comparar planes. Yo hago ese trabajo por ti.</p>
+            <ul>
+              <li>Coberturas altas en las clínicas que eliges</li>
+              <li>Topes anuales y cobertura oncológica revisados</li>
+              <li>Comparación lista para decidir en minutos</li>
+            </ul>
+            <a href="#contacto" class="more" data-perfil="Médico/a">Quiero mi asesoría →</a>
+          </article>
+          <article class="client">
+            <div class="ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <h3>Ejecutivos y gerencias</h3>
+            <p>Tu 7% es alto. Asegúrate de que se traduzca en la mejor protección posible para ti y tu familia.</p>
+            <ul>
+              <li>Planes de alta cobertura y libre elección</li>
+              <li>Optimización de tu cotización y excedentes</li>
+              <li>Trámite completo sin quitarte tiempo</li>
+            </ul>
+            <a href="#contacto" class="more" data-perfil="Ejecutivo/a o gerente">Quiero mi asesoría →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-trabajo" class="white">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Cómo trabajo</span>
+          <h2>Simple, claro y sin compromiso</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><h3>Me cuentas tu situación</h3><p>Tu plan actual, cuánto pagas, tu edad, tus cargas y las clínicas donde te atiendes.</p></div>
+          <div class="step"><h3>Comparo las opciones</h3><p>Te entrego una comparación lado a lado con lo que de verdad pagarías en cada caso.</p></div>
+          <div class="step"><h3>Tú decides</h3><p>Sin presión ni costo. Si te cambias, te acompaño en el trámite de principio a fin.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Qué reviso en tu plan</span>
+          <h2>Lo que no se ve en la letra chica</h2>
+        </div>
+        <div class="checks">
+          <div class="check"><div class="dot">1</div><div><strong>Fonasa, isapre y complementarios</strong><span>Qué te conviene según tu ingreso, tu edad y tu familia.</span></div></div>
+          <div class="check"><div class="dot">2</div><div><strong>Cobertura hospitalaria y ambulatoria</strong><span>Porcentajes y topes en tus clínicas, preferente y libre elección.</span></div></div>
+          <div class="check"><div class="dot">3</div><div><strong>Copago real</strong><span>Cuánto pagas de tu bolsillo en una consulta, examen o urgencia.</span></div></div>
+          <div class="check"><div class="dot">4</div><div><strong>Topes anuales y oncología</strong><span>Lo que importa en un año difícil: medicamentos, quimioterapia y tope general.</span></div></div>
+          <div class="check"><div class="dot">5</div><div><strong>Maternidad y restricciones</strong><span>Parto, cesárea y prestaciones con cobertura reducida.</span></div></div>
+          <div class="check"><div class="dot">6</div><div><strong>Precio según tu grupo</strong><span>Factores por edad, cargas y beneficios adicionales.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre-mi" class="white">
+      <div class="wrap about">
+        <div class="avatar" aria-hidden="true">AM</div>
+        <div>
+          <span class="eyebrow" style="color:var(--blue)">Sobre mí</span>
+          <h2>Hola, soy Alexis Melgarejo</h2>
+          <p>Soy asesor integral de salud certificado por la Superintendencia de Salud. Mi trabajo es que entiendas tu plan y que tu 7% rinda lo máximo posible.</p>
+          <p>Trabajo con profesionales que tienen poco tiempo y mucho en juego: veterinarios, médicos y ejecutivos. Te explico todo con números claros, sin tecnicismos y sin presión.</p>
+          <div class="social">
+            <a href="https://www.linkedin.com/in/alexis-melgarejo-442917228/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://www.instagram.com/asesor.melgarejo/" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://wa.me/56979330919" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="nosotros">
-      <div class="container about">
-        <div>
-          <h2>Sobre nosotros</h2>
-          <p>Somos un equipo enfocado en ofrecer soluciones simples y efectivas. Creemos en la transparencia, la cercanía y el trabajo bien hecho.</p>
-          <p>Reemplaza este texto con tu propia historia, tu experiencia y lo que te hace diferente.</p>
+    <section id="testimonios">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Testimonios</span>
+          <h2>Lo que dicen quienes ya confiaron en mí</h2>
+          <p>Recomendaciones publicadas en mi perfil de LinkedIn.</p>
         </div>
-        <div class="stats">
-          <div class="stat"><strong>10+</strong><span>años</span></div>
-          <div class="stat"><strong>200+</strong><span>clientes</span></div>
-          <div class="stat"><strong>98%</strong><span>satisfacción</span></div>
+        <div class="quotes">
+          <figure class="quote">
+            <blockquote>“Destacaría principalmente su capacidad para explicar temas que muchas veces resultan complejos para las personas. Su asesoría se caracteriza por ser clara, personalizada y enfocada en las necesidades reales de cada cliente.”</blockquote>
+            <figcaption><strong>Sergio Cáceres H.</strong><span>HR Business Partner · People &amp; Culture Leader</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>“Me ofreció beneficios adicionales sin costo por un año y me ayudó a encontrar el mejor plan de la competencia, y continúa brindándome apoyo incluso después de haber contratado el plan.”</blockquote>
+            <figcaption><strong>Jorge Jara S.</strong><span>Ingeniero de proyectos</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>“Excelente asesor, me buscó un plan a mi medida y siempre ha estado pendiente de mi experiencia. Lo recomiendo.”</blockquote>
+            <figcaption><strong>Michael Cerda T.</strong><span>Jefe Corporativo de Tesorería, Crédito y Cobranzas</span></figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>“Excelente asesor de salud, responsable y comprometido. Me ayudó a resolver todas mis dudas y a encontrar una alternativa acorde a mis necesidades. Gracias por la asesoría post contrato.”</blockquote>
+            <figcaption><strong>Daniela Espinoza</strong><span>Analista de control y gestión de calidad</span></figcaption>
+          </figure>
+        </div>
+        <p style="text-align:center;margin-top:28px"><a href="https://www.linkedin.com/in/alexis-melgarejo-442917228/details/recommendations/" target="_blank" rel="noopener" style="color:var(--blue);font-weight:600">Ver todas las recomendaciones en LinkedIn →</a></p>
+      </div>
+    </section>
+
+    <section id="preguntas" class="white">
+      <div class="wrap">
+        <div class="head">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2>Resolvemos tus dudas</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>¿La asesoría tiene algún costo?</summary>
+            <p>No. La asesoría y la comparación son gratuitas y sin compromiso. Tú decides si te cambias o no.</p>
+          </details>
+          <details>
+            <summary>¿Qué es el 7% de salud?</summary>
+            <p>Es la cotización obligatoria que se descuenta de tu sueldo o de tus honorarios para salud. Puedes destinarla a Fonasa o a una isapre, y elegir bien marca la diferencia en cobertura.</p>
+          </details>
+          <details>
+            <summary>¿Qué es el copago?</summary>
+            <p>Es la parte de una prestación que pagas tú, después de lo que cubre tu plan. Un buen plan es el que reduce tu copago en las clínicas que realmente usas.</p>
+          </details>
+          <details>
+            <summary>¿Qué necesito para empezar?</summary>
+            <p>Solo cuéntame tu plan actual (o si estás en Fonasa), cuánto pagas, tu edad, tus cargas y dónde te atiendes. Con eso preparo tu comparación.</p>
+          </details>
+          <details>
+            <summary>¿Atiendes fuera de Santiago?</summary>
+            <p>Sí. Atiendo en todo Chile, de Arica a Magallanes, por WhatsApp y videollamada.</p>
+          </details>
         </div>
       </div>
     </section>
 
     <section id="contacto">
-      <div class="container">
-        <h2 class="section-title">Contacto</h2>
-        <p class="section-sub">Escríbenos y te responderemos pronto</p>
-        <div class="contact">
-          <form id="form-contacto">
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
-            <input type="email" name="email" placeholder="Tu correo" required>
-            <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
-            <button type="submit" class="btn primary">Enviar mensaje</button>
-            <p id="mensaje-ok">¡Gracias! Este formulario es de muestra y aún no envía mensajes.</p>
-          </form>
+      <div class="wrap contact">
+        <div>
+          <span class="eyebrow">Contacto</span>
+          <h2>Pide tu comparación gratis</h2>
+          <p>Completa tus datos y se abrirá WhatsApp con tu mensaje listo para enviármelo. Te respondo en menos de 24 horas.</p>
+          <a href="https://wa.me/56979330919?text=Hola%20Alexis%2C%20quiero%20una%20asesor%C3%ADa%20de%20salud." target="_blank" rel="noopener" class="btn btn-wa">WhatsApp: +56 9 7933 0919</a>
         </div>
+        <form id="lead" novalidate>
+          <label>Nombre<input type="text" name="nombre" autocomplete="name" required></label>
+          <label>Profesión
+            <select name="perfil">
+              <option value="">Selecciona</option>
+              <option>Veterinario/a</option>
+              <option>Médico/a</option>
+              <option>Ejecutivo/a o gerente</option>
+              <option>Otra</option>
+            </select>
+          </label>
+          <label>Edad<input type="number" name="edad" min="0" max="120" inputmode="numeric"></label>
+          <label>Sistema actual
+            <select name="isapre">
+              <option value="">Selecciona</option>
+              <option>Fonasa</option><option>Banmédica</option><option>Colmena</option><option>Consalud</option><option>CruzBlanca</option><option>Esencial</option><option>Nueva Masvida</option><option>Vida Tres</option><option>Otra</option>
+            </select>
+          </label>
+          <label>Cuánto pagas al mes (aprox.)<input type="text" name="pago" placeholder="Ej: $150.000"></label>
+          <label>N° de cargas<input type="number" name="cargas" min="0" max="20" inputmode="numeric"></label>
+          <label class="full">Clínica donde te atiendes<input type="text" name="clinica"></label>
+          <label class="full consent"><input type="checkbox" name="ok" required>Acepto que Alexis Melgarejo me contacte para enviarme la comparación.</label>
+          <button type="submit" class="btn btn-blue full">Enviar por WhatsApp</button>
+          <p id="msg" class="full" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">© <span id="anio"></span> Mi Web · Hecho con ❤️ y desplegado en Vercel</div>
+    <div class="wrap">
+      <span>© <span id="anio"></span> Alexis Melgarejo · Asesor de Salud</span>
+      <span>Los valores del caso real corresponden a un cliente anonimizado y varían según edad, cargas y plan.</span>
+    </div>
   </footer>
+
+  <a class="float-wa" href="https://wa.me/56979330919?text=Hola%20Alexis%2C%20quiero%20una%20asesor%C3%ADa%20de%20salud." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4.9 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+  </a>
 
   <script>
     document.getElementById('anio').textContent = new Date().getFullYear();
-    document.getElementById('form-contacto').addEventListener('submit', function (e) {
+    var form = document.getElementById('lead'), msg = document.getElementById('msg');
+    document.querySelectorAll('[data-perfil]').forEach(function (a) {
+      a.addEventListener('click', function () { form.elements.perfil.value = a.dataset.perfil; });
+    });
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      document.getElementById('mensaje-ok').style.display = 'block';
-      this.reset();
+      var f = form.elements, nombre = f.nombre.value.trim();
+      msg.className = 'full';
+      if (!nombre) { msg.textContent = 'Escribe tu nombre para continuar.'; msg.className = 'full err'; f.nombre.focus(); return; }
+      if (!f.ok.checked) { msg.textContent = 'Marca la casilla de autorización para continuar.'; msg.className = 'full err'; return; }
+      var lines = ['Hola Alexis, quiero mi comparación de salud.', 'Nombre: ' + nombre];
+      [['Profesión', f.perfil], ['Edad', f.edad], ['Sistema actual', f.isapre], ['Pago mensual', f.pago], ['Cargas', f.cargas], ['Clínica', f.clinica]].forEach(function (p) {
+        var v = p[1].value.trim(); if (v) lines.push(p[0] + ': ' + v);
+      });
+      var url = 'https://wa.me/56979330919?text=' + encodeURIComponent(lines.join('\n'));
+      var w = null; try { w = window.open(url, '_blank', 'noopener'); } catch (err) {}
+      msg.textContent = '';
+      var a = document.createElement('a'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Abrir WhatsApp con mi mensaje';
+      msg.appendChild(document.createTextNode(w ? 'Se abrió WhatsApp. Si no lo ves: ' : 'Toca aquí para enviarlo: '));
+      msg.appendChild(a);
     });
   </script>
 </body>
