@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Web</title>
+  <meta name="description" content="Página de muestra de Mi Web.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5f6368;
+      --accent: #2f7d4f;
+      --accent-soft: #e3f1e8;
+      --border: #e4e4e0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111312;
+        --surface: #1a1d1b;
+        --text: #f1f1ef;
+        --muted: #a3a8a5;
+        --accent: #5cc48a;
+        --accent-soft: #1f3328;
+        --border: #2a2e2c;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navegación */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 800; font-size: 1.2rem; }
+    .logo span { color: var(--accent); }
+    .links { display: flex; gap: 24px; font-size: .95rem; color: var(--muted); }
+    .links a:hover { color: var(--text); }
+
+    /* Portada */
+    .hero { padding: 96px 0 80px; text-align: center; }
+    .badge {
+      display: inline-block; padding: 6px 14px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent);
+      font-size: .85rem; font-weight: 600; margin-bottom: 20px;
+    }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.1; font-weight: 800; margin-bottom: 20px; }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 600px; margin: 0 auto 32px; }
+    .buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      padding: 12px 24px; border-radius: 10px; font-weight: 600;
+      border: 1px solid var(--border); background: var(--surface);
+      transition: transform .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* Secciones */
+    section { padding: 72px 0; }
+    .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 12px; text-align: center; }
+    .section-sub { color: var(--muted); text-align: center; margin-bottom: 48px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px;
+    }
+    .card .icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--accent-soft); color: var(--accent);
+      display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 16px;
+    }
+    .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); font-size: .95rem; }
+
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+    .about p { color: var(--muted); margin-bottom: 12px; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; text-align: center; }
+    .stat strong { display: block; font-size: 1.8rem; color: var(--accent); }
+    .stat span { color: var(--muted); font-size: .85rem; }
+
+    /* Contacto */
+    .contact { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 48px; max-width: 640px; margin: 0 auto; }
+    form { display: grid; gap: 14px; }
+    input, textarea {
+      width: 100%; padding: 12px 14px; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--bg); color: var(--text);
+      font: inherit;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    button.btn { cursor: pointer; font: inherit; font-weight: 600; }
+    #mensaje-ok { color: var(--accent); font-weight: 600; text-align: center; display: none; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); font-size: .9rem; text-align: center; }
+
+    @media (max-width: 720px) {
+      .links { display: none; }
+      .about { grid-template-columns: 1fr; }
+      .contact { padding: 28px 20px; }
+      .hero { padding: 64px 0 48px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">Mi<span>Web</span></a>
+        <div class="links">
+          <a href="#servicios">Servicios</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero">
+      <span class="badge">Página de muestra</span>
+      <h1>Tu proyecto, en línea<br>y listo para crecer</h1>
+      <p>Esta es una página de ejemplo publicada con Vercel. Cambia los textos, colores y secciones para adaptarla a lo que necesites.</p>
+      <div class="buttons">
+        <a href="#contacto" class="btn primary">Contáctanos</a>
+        <a href="#servicios" class="btn">Ver servicios</a>
+      </div>
+    </div>
+
+    <section id="servicios">
+      <div class="container">
+        <h2 class="section-title">Servicios</h2>
+        <p class="section-sub">Lo que podemos hacer por ti</p>
+        <div class="grid">
+          <div class="card">
+            <div class="icon">💼</div>
+            <h3>Asesoría</h3>
+            <p>Te acompañamos a tomar mejores decisiones con un análisis claro de tu situación.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📊</div>
+            <h3>Planificación</h3>
+            <p>Definimos objetivos, plazos y pasos concretos para que avances con seguridad.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🤝</div>
+            <h3>Acompañamiento</h3>
+            <p>Seguimiento cercano y atención personalizada durante todo el proceso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="nosotros">
+      <div class="container about">
+        <div>
+          <h2>Sobre nosotros</h2>
+          <p>Somos un equipo enfocado en ofrecer soluciones simples y efectivas. Creemos en la transparencia, la cercanía y el trabajo bien hecho.</p>
+          <p>Reemplaza este texto con tu propia historia, tu experiencia y lo que te hace diferente.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>10+</strong><span>años</span></div>
+          <div class="stat"><strong>200+</strong><span>clientes</span></div>
+          <div class="stat"><strong>98%</strong><span>satisfacción</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-sub">Escríbenos y te responderemos pronto</p>
+        <div class="contact">
+          <form id="form-contacto">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu correo" required>
+            <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+            <button type="submit" class="btn primary">Enviar mensaje</button>
+            <p id="mensaje-ok">¡Gracias! Este formulario es de muestra y aún no envía mensajes.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="anio"></span> Mi Web · Hecho con ❤️ y desplegado en Vercel</div>
+  </footer>
+
+  <script>
+    document.getElementById('anio').textContent = new Date().getFullYear();
+    document.getElementById('form-contacto').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('mensaje-ok').style.display = 'block';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
